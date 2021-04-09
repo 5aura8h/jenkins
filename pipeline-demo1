@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    
+    stages {
+        
+        stage('Build'){
+            
+            steps {
+                
+                echo "My first pipleline as code step"
+                sleep 2
+            }
+            
+        }
+        stage('Test') {
+            steps {
+                echo "My Test"
+                sleep 2
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "My Deploy"
+            }
+        }
+    }
+}
