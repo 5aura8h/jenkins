@@ -1,0 +1,46 @@
+pipeline {
+    
+    agent none
+    
+    stages {
+        
+        stage('gitscm') {
+            
+            agent {
+                label 'mavendocker'
+            }
+            steps  {
+             echo "git ..."    
+            }
+            
+        }
+        stage('build') {
+            
+            agent {
+                label 'mavendocker'
+            }
+            
+            steps  {
+             echo "build ..."    
+            }
+            
+        }
+        stage('test') {
+            
+            agent {
+                label 'mavendocker'
+            }
+            
+            steps  {
+             echo "test ..."   
+            }
+            
+        }
+        
+        
+        
+        
+        
+        
+    }
+}
