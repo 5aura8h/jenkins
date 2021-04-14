@@ -32,7 +32,10 @@ pipeline {
             }
             
             steps  {
+             unstash 'myapp'
              sh 'mvn package'   
+             stash includes: 'target/*jar' , name: 'mymvn'
+             
             }
             
         }
@@ -43,6 +46,7 @@ pipeline {
             }
             
             steps  {
+             unstash 'mymvn'
              sh 'java -jar target/*.jar'   
             }
             
