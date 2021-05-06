@@ -16,7 +16,7 @@ pipeline {
                 label 'mac'
             }
         steps {
-           sh 'cd /Users/saukotha/Documents/cisco/devnet/jenkins/data/jobs/sample-pipeline'         
+           sh 'cd /Users/saukotha/Documents/cisco/devnet/jenkins/data/workspace/sample-pipeline'         
            sh 'terraform init'
          
         }      
@@ -26,7 +26,7 @@ pipeline {
                 label 'mac'
             }
         steps {
-          sh 'cd /Users/saukotha/Documents/cisco/devnet/jenkins/data/jobs/sample-pipeline'         
+          sh 'cd /Users/saukotha/Documents/cisco/devnet/jenkins/data/workspace/sample-pipeline'         
           sh 'terraform plan'
         }
       } 
@@ -43,7 +43,7 @@ pipeline {
                 label 'mac'
             }
         steps {
-          sh 'cd /Users/saukotha/Documents/cisco/devnet/jenkins/data/jobs/sample-pipeline'           
+          sh 'cd /Users/saukotha/Documents/cisco/devnet/jenkins/data/workspace/sample-pipeline'           
           sh 'terraform apply -auto-approve'
         }
       }
