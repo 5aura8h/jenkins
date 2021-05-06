@@ -39,3 +39,10 @@ resource "aci_subnet" "subnet" {
   scope = ["shared"]
 
 }
+resource "aci_subnet" "subnet2" {
+  parent_dn = "${aci_bridge_domain.bd.id}"
+  description = "using terraform"
+  ip = "10.0.3.10/29"
+  scope = ["shared"]
+
+}
