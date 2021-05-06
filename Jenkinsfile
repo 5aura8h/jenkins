@@ -12,15 +12,15 @@ pipeline {
       stage('TF Init&Plan') {
         steps {
           
-          sh 'sudo terraform init'
-          sh 'sudo terraform plan'
+          sh 'terraform init'
+          sh 'terraform plan'
         }      
       }
 
       stage('TF Apply') {
         steps {
       
-          sh 'sudo terraform apply -input=false'
+          sh 'terraform apply -input=false'
         }
       }
     } 
