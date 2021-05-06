@@ -4,24 +4,21 @@ pipeline {
     stages {
       stage('Download TF script') {
         steps {
-          git branch: main,
-              url: 'https://github.com/5aura8h/jenkins.git'
+          git 'https://github.com/5aura8h/jenkins.git'
         }
       }
 
       stage('TF Init') {
         steps {
-          
           sh 'terraform init'
          
         }      
       }
       stage('TF Plan') {
         steps {
-          
           sh 'terraform plan'
-        }      
-      }   
+        }
+      } 
       stage('Request Approval') {
         steps {
           script {
@@ -32,7 +29,6 @@ pipeline {
       
       stage('TF Apply') {
         steps {
-      
           sh 'terraform apply -auto-approve'
         }
       }
