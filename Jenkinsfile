@@ -4,7 +4,8 @@ pipeline {
     stages {
       stage('Download TF script') {
         steps {
-          git 'https://github.com/5aura8h/jenkins.git'
+          git branch: main,
+              url: 'https://github.com/5aura8h/jenkins.git'
         }
       }
 
