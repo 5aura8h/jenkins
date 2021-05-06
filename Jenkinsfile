@@ -2,21 +2,26 @@ pipeline {
     agent any
 
     stages {
-      stage('Get TF Code') {
+      stage('Download TF script') {
         steps {
-          git branch: 'main',
-              url: 'https://github.com/5aura8h/jenkins.git'
+          git 'https://github.com/5aura8h/jenkins.git'
         }
       }
 
-      stage('TF Init&Plan') {
+      stage('TF Init') {
         steps {
           
           sh 'terraform init'
-          sh 'terraform plan'
+         
         }      
       }
-      stage('Approval') {
+      stage('TF Plan') {
+        steps {
+          
+          sh 'terraform plan'
+        }      
+      }   
+      stage('Request Approval') {
         steps {
           script {
             def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
