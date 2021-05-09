@@ -17,7 +17,7 @@ provider "aci" {
 }
 
 resource "aci_tenant" "tenant" {
- name = "saukotha22"
+ name = "saukotha222"
  description = "Using Terraform"
 }
 
