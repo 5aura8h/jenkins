@@ -37,3 +37,13 @@ variable "bd200_name" {
     type = string
     default = "bd200"
 }
+variable "bd200_description" {
+    type = string
+    default = "using terraform"
+}
+
+
+variable "bd100_description" {
+    type = string
+    default = "using terraform"
+}
