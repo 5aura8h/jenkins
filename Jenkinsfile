@@ -1,52 +1,39 @@
 pipeline {
-    agent none
-
+    agent any
+    tools {
+        "org.jenkinsci.plugins.terraform.TerraformInstallation" "aci_terraform_rhel"
+    }
     stages {
-      stage('Download TF script') {
-          agent {
-              label 'master'
-          }
-        steps {
-          git branch: 'main',
-              url: 'https://github.com/5aura8h/jenkins.git'
-        }
-      }
 
-      stage('TF Init') {
-          agent {
-                label 'mac'
+        stage('Git Checkout'){
+            steps {
+                
+                    git branch: 'main',
+                        url: 'https://github.com/5aura8h/jenkins.git'
+                
             }
-        steps {
-           sh 'cd /Users/saukotha/Documents/cisco/devnet/jenkins/data/workspace/sample-pipeline'         
-           sh 'terraform init'
-         
-        }      
-      }
-      stage('TF Plan') {
-          agent {
-                label 'mac'
-            }
-        steps {
-          sh 'cd /Users/saukotha/Documents/cisco/devnet/jenkins/data/workspace/sample-pipeline'         
-          sh 'terraform plan'
         }
-      } 
-      stage('Request Approval') {
-        steps {
-          script {
-            def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
-          }
+        stage('Terraform Init'){
+            steps {
+                
+                    
+                    sh 'terraform init'
         }
-      }
-      
-      stage('TF Apply') {
-          agent {
-                label 'mac'
-            }
-        steps {
-          sh 'cd /Users/saukotha/Documents/cisco/devnet/jenkins/data/workspace/sample-pipeline'           
-          sh 'terraform apply -auto-approve'
+    }
+    stage('Terraform Plan'){
+            steps {
+                
+                    
+                    sh 'terraform plan'
         }
-      }
-    } 
-  }
+    }
+    stage('Terraform Apply'){
+            steps {
+                
+                    
+                    sh 'terraform apply -auto-approve'
+        
+    }
+    }
+}
+}
