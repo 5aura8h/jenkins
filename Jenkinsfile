@@ -5,13 +5,7 @@ pipeline {
     }
     stages {
 
-        stage('Git Checkout'){
-            steps {
-                
-                    git 'https://github.com/5aura8h/jenkins.git'
-                
-            }
-        }
+    
         stage('Terraform Init'){
             steps {
                 
