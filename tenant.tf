@@ -20,7 +20,7 @@ resource "aci_tenant" "tenant" {
 }
 
 resource "aci_vrf" "vrf" {
-  tenant_dn = "${var.aci_tenant.tenant.id}"
+  tenant_dn = "${aci_tenant.tenant.id}"
    name = "${var.vrf_name}"
 }
 
