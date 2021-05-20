@@ -8,8 +8,10 @@ terraform {
 }
 
 provider "aci" {
- username = "${var.user_name}"
- password = "${var.user_pwd}"
+ username = "saukotha"
+ private_key = "userabc.key"
+ cert_name = "userabc.crt"
+#password = "${var.user_pwd}"
  url = "${var.apic_url}"
 
 }
