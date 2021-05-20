@@ -23,7 +23,7 @@ pipeline {
     stage('Terraform Apply'){
             steps {
                 
-                    
+                    sh 'export TF_LOG=trace'
                     sh 'terraform apply -auto-approve'
         
     }
