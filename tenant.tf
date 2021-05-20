@@ -10,9 +10,9 @@ terraform {
 
 provider "aci" {
  username = "saukotha"
- private_key = "userabc.key"
- cert_name = "userabc.crt"
-#password = "${var.user_pwd}"
+ #private_key = "userabc.key"
+# cert_name = "userabc.crt"
+ password = "cisco!123"
  url = "${var.apic_url}"
  insecure = true
 
