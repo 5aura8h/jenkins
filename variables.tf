@@ -10,7 +10,6 @@ variable "user_pwd" {
 }
 
 variable "apic_url" {
-    type = string
     #default = "https://10.48.168.2"
     default = "https://10.106.236.61"
 
