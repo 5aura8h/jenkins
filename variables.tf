@@ -1,17 +1,18 @@
 
 variable "user_name" {
     type = string
-    default = "saukotha"
+    default = "admin"
 }
 
 variable "user_pwd" {
     type = string
-    default = "cisco!123"
+    default = "C1sco12345"
 }
 
 variable "apic_url" {
     type = string
-    default = "https://10.48.168.2"
+    #default = "https://10.48.168.2"
+    default = "https://10.106.236.61"
 
 }
 variable "tenant_name" {
