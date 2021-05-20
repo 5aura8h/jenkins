@@ -13,6 +13,7 @@ provider "aci" {
  cert_name = "userabc.crt"
 #password = "${var.user_pwd}"
  url = "${var.apic_url}"
+ insecure = true
 
 }
 
