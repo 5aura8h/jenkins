@@ -10,8 +10,8 @@ variable "user_pwd" {
 }
 
 variable "apic_url" {
-    #default = "https://10.48.168.2"
-    default = "https://10.106.236.61"
+    default = "https://10.48.168.2"
+    #default = "https://10.106.236.61"
 
 }
 variable "tenant_name" {
